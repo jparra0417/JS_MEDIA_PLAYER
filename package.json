@@ -1,0 +1,22 @@
+{
+  "name": "JS_MEDIA_PLAYER",
+  "version": "1.0.0",
+  "description": "Video media player",  
+  "scripts": {
+    "start": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jparra0417/JS_MEDIA_PLAYER.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jparra0417/JS_MEDIA_PLAYER/issues"
+  },
+  "homepage": "https://github.com/jparra0417/JS_MEDIA_PLAYER#readme",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
