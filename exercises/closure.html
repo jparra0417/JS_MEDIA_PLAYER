@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Hola soy closure
+    <script>
+        // (function() {
+        //     let color = 'green';
+        //     // un closure es una funcion interna que tiene acceso al scope de una funcion externa, incluso despues de que la funcione xterna sea ejecutada
+        //     function printColor() {
+        //         console.log(color);
+        //     }
+        // })(); //IIFE 
+
+        // funciones que retornan funciones mantiene el estado de la funcione xterna
+        // function makeColorPrinter(color){
+        //     let message = `The color is ${color}`;
+        //     return function() {
+        //         console.log(message);
+        //     }            
+        // }
+        //  la nueva funcion va a ejecutar la funcion externa y está disponible para ejecutarse con el estado de la funcion externa          
+        // esto nos ayuda a manejar el acceso a variables 
+        // let greenColorPrinter= makeColorPrinter('green');
+        // greenColorPrinter();
+
+
+        // variable privada
+        function makeCounter(n){
+            let count = n;
+            return {
+                increase: function(){count++;},
+                decrease: function() { count--;},
+                getCount: function() { return count;}
+            }
+        }
+
+        let counter = makeCounter(7);
+        console.log(`count : ${counter.getCount()}`);
+        counter.decrease();
+        counter.decrease();
+        counter.decrease();
+        counter.decrease();
+        console.log(`count : ${counter.getCount()}`);
+        counter.decrease();
+        counter.decrease();
+        console.log(`count : ${counter.getCount()}`);
+        console.log(`count : ${counter.count}`);
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

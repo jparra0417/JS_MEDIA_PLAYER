@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // global scope var
+        var message = 'Hola';
+        // it will print 6,6,6,6,6, insted of 0,1,2,3,4,5
+        for (var i = 0; i < 6; i++) 
+            setTimeout(() => console.log(i), 100);            
+        
+        // it will print 0,1,2,3,4,5
+        const printNumber = (n) => setTimeout(() => console.log(n), 100);
+        for (let i = 0; i < 6; i++) 
+            printNumber(i)
+
+        // it will print 0,1,2,3,4,5 because 'let' operate over the scope in this case for
+        for (let i = 0; i < 6; i++) 
+            setTimeout(() => console.log(i), 100); 
+        
+
+
+    </script>
+</body>
+</html>

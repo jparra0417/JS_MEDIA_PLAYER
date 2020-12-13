@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body onload="init()">
+  <body>
     <h1></h1>
     <main class="container">
       <video class="movie" id="movie">
@@ -14,30 +14,9 @@
         />
       </video>
     </main>
-    <button type="button" id="play">Play</button>
-    <button type="button" id="pause">Pause</button>
-    <script>
-      const init = () => {
-        const video = document.querySelector("#movie");
-        const buttonPlay = document.querySelector("#play");
-        const buttonPause = document.querySelector("#pause");
-
-        function MediaPlayer(config) {
-          this.media = config.el;
-        }
-        MediaPlayer.prototype.play = function () {
-          this.media && this.media.play();
-        };
-        MediaPlayer.prototype.pause = function () {
-          this.media && this.media.pause();
-        };
-
-        const player = new MediaPlayer({ el: video });
-        buttonPlay.onclick = () => player.play();
-        buttonPlay.onclick = () => player.play();
-        buttonPause.onclick = () => player.pause();
-
-      };
-    </script>
+    <button type="button" id="play">Play</button>   
+    <!-- defer : load script asynchronously and execute at the end of the load of html 
+    type="module" : it will define the file as a module so the scope is limited only in the file, if you console.log(MediaPlayer)--> 
+    <script type="module" src="assets/js/index.js"></script>
   </body>
 </html>
