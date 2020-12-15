@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Hero(name) {
+        this.name = name;
+      }
+
+      Hero.prototype.saludar = function () {
+        console.log(`Soy ${this.name} y soy super poderoso on new`);
+      };
+
+      let zelda = new Hero("Zelda");
+      zelda.saludar();
+
+      // proto : objeto que se crea 
+      const prototypeOfZelda = Object.getPrototypeOf(zelda);
+      console.log(prototypeOfZelda === Hero.prototype)
+      Hero.prototype.fight = function() { console.log('FIGHT')} 
+      
+
+      
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    HOW JS WORKS
+    <script>
+        // parsers and abstract syntax tree
+        // web -> javascript arived with netscape it works easy, it works step by step
+        // chrome -> it needs an efficient engine: 
+            // get the source
+            // parse nd produce an abstract syntax tree
+            // the interpreter will convert to bytecode it allows to execute
+            // there is a profiler where 
+            // after that there is an oprtimizing compiler and after that
+
+        // parser
+            // take a source code and descomposes them
+            // they take tokens like new { () variable }
+            // what happened if parser fails then syntax error
+            //  the parsing is very important to do it well, it takes 15-20% of runtime execution
+            // the most js will never be  executed
+            // there are two ways to parser of V8
+                // eager:
+                // find the errors
+                // create the ast
+                // build the scope
+                // lazy:
+                // it is double than 
+                // dnt create ast
+                // it build scope partially
+            // tokens sprima.org/demo/parse.html
+            // it classifies
+        // AST
+            // IS A GRAPH (data structure) that shows a program
+            // it uses
+                // js engine
+                // astexplorer.net
+        // js engine
+            // generate the bytecode
+            // the interpreter is checking to see how to optimize the code
+            // bytecode vs machine code
+                // assembly is a low level language
+                // it will be executed in a virtual machine
+                    // machine code is the binary code for the processors
+        // V8 
+            // INTERPRETER => BYTECODE --- PROFILE -- > OPTIMIZING CODE -> OPTIMIZED CODE -> BYTECODE
+
+            // the profiler will checking the bytecode and if it realizes that a code is ready to be optimized
+            // so the profiler will optimize
+            // if there is a strange thing then the optimizer will abort the optimization
+        // spider monkey firefox
+            // it ahs 2 layers of optimization
+        // chakra edge 
+            // it has 2 layers of op
+        // javascript core safari
+            // it has 3 layers of optimization
+
+                
+    //  Event loop
+        // es lo que hace que js parezca lucir como multi hilo pero en realidad es un solo hilo
+        // hay dos estructuras
+            // stack:
+                // estructura ordenada que lleva rastro donde esta el programa .. 
+                // es una pila y va poniendo elementos por push haz de cuenta un plato
+                // filo -> first in , last out si queremos sacar elementos con pop
+                // el stack estan las funciones apuntan variables como el scope function -> scope
+                // va acumulando funciones a medida que se van definiendo desde afuera hasta adentro
+                
+                function hello() {
+                    console.log("hello");
+                }
+                function main() {
+                    hello();
+                }
+                main();
+                
+                // stack
+                // main -> hello -> console.log
+                // so
+                // 1. execute console.log
+                // 2. hello
+                // 3. main
+
+                // queue es una estructura es fifo first in, first out 
+                // cola tareas
+
+                // event loop tiene un stack call donde guarda los metodos a ejecutar los acumula como una pila [FILO], en esta pila es donde hace la ejecucion de codigo
+                // cuando hay una funcion asincronica, se deja en el scheduled task hasta que tener una respuesta
+                // una vez se tenga una respuesta del metodo asincronica es pasado al task queue el cual va acumular tareas asincronicas respondidas en [FIFO]
+                // el que va  estar consumiento la cola y llevandola al stack call es el EVENT LOOP quien siempre esta preguntando si hay algo en el stack call y si puede enviar tareas del task queue al stack call
+                // por ultimo las promesas vana  tener una micro task queue que va a tener una prioridad mas grande que las que se encuentre en task queue
+
+                
+
+
+
+
+            // memory heap:  
+                // es donde se guarda informacion de forma aleatoria y desorganizada
+    </script>
+</body>
+</html>

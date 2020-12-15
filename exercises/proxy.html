@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src ="https://unpkg.com/fast-levenshtein@2.0.6/levenshtein.js"></script>
+    <script>
+        // podemos poner interceptores, esto permite que la llamada sea manipulada antes de que llegue al objeto
+        // libreria fast-levenshtein encuentra la distancia entre dos cadenas
+        window.Levenshtein.get("Java", "Javascript");
+
+        // dos argments
+        // target: objeto a insertar
+        // handle: 
+
+        const target = {
+            red: 'Rojo',
+            green: 'Verde',
+            blue: 'Azul'
+        }
+
+        // definimos un handler 
+        const handler = {
+            get : (obj, prop) => {
+                if(prop in obj) return obj[prop];
+                const suggestion = Object.keys(obj).find(key => Levenshtein.get(key,prop)<= 3)
+                if (suggestion) console.log(`No se encontro el objeto ${prop}, quisiste decir ${suggestion} ?`);
+
+                return obj[prop];
+            }
+        }
+
+        const p = new Proxy(target,handler);
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // it refers the instance of a object but...
+
+      // this as global : window
+      console.log(`this: ${this}`);
+
+      // this as function
+      function who() {
+        return this;
+      }
+      console.log(`this: ${who()}`); // it returns this as window as well
+
+      // this as function strict
+      function whoStrict() {
+        "use strict";
+        return this;
+      }
+      console.log(`this: ${whoStrict()}`); // it returns undefined
+
+      // this en un contexto
+      const person = {
+        name: "Julian",
+        saludar: function () {
+          console.log(`Hola soy ${this.name}`);
+        },
+      };
+      person.saludar(); // THIS SE REFIERE AL OBJETO QUE ESTA EJECUTANDO LA FUNCION retornar Hola soy Julian
+
+      // sacamos a una fucnion
+      const accion = person.saludar;
+      accion(); // NO SE ESTA LLAMANDO EN UN OBJETO retorna Hola soy
+
+      // clase
+      function Person(name) {
+        this.name = name;
+      }
+      Person.prototype.saludar = function () {
+        console.log(`Hola me llamo ${this.name}`);
+      };
+
+      const angie = new Person("Angie");
+      angie.saludar(); // SE HACE SOBRE LA ISNTANCIA NO SOBRE LA DEFINICION PROTOTIPAL
+
+      // ESTABLECER THIS
+      
+
+
+    
+
+
+      
+    </script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="my_buttons">Button 1</button>
+    <button class="my_buttons">Button 2</button>
+    <button class="my_buttons">Button 3</button>
+    <script>
+      // call arguments separted by comma
+      function saludar() {
+        console.log(`Holaa! soy ${this.name}`);
+      }
+      const richard = {
+        name: "Richard",
+      };
+      function caminar(metros, direccion) {
+        console.log(`${this.name} camina ${metros} metros hacia ${direccion}`);
+      }
+      saludar.call(richard);
+
+      caminar.call(richard, 14000, "norte");
+
+      // apply arguments by array
+      caminar.apply(richard, [7000, "occidente"]);
+
+      /*
+            C de call => commas
+            A de apply => array
+        */
+      // bind crea nueva funcion con un context
+      const daniel = { name: "Daniel" };
+      const saludaDaniel = saludar.bind(daniel);
+      saludaDaniel();
+
+      const caminaDaniel = caminar.bind(daniel);
+      caminaDaniel(100, "oriente");
+
+      const caminaDanielConArgs = caminar.bind(daniel, 3000, "sur");
+      caminaDanielConArgs();
+
+      // curing guarda parcialmente los argumentos
+      const caminaDanielConArgsParciales = caminar.bind(daniel, 6789);
+      caminaDanielConArgsParciales("noreste");
+
+      // practice
+      let buttons = document.getElementsByClassName('my_buttons');
+
+      
+    //   buttons.forEach(button => {
+    //       button.onclick = () => alert('Hola :D');
+    //   });
+    // ERROR -> NodeList doesnt have foreach function so lets practice
+
+    // Let's use call in array prtotype foreach to execute the foreach
+    Array.prototype.forEach.call(buttons, button => {
+           button.onclick = () => alert('Hola :D');
+    });
+
+
+    </script>
+  </body>
+</html>
+

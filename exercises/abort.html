@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="img" />
+    <button id="load">Load</button>
+    <button id="stop">Stop</button>
+    <script>
+
+        const loadButton = document.getElementById('load');
+        const stopButton = document.getElementById('stop');
+        const img = document.getElementById('img');
+        let controller;  
+        const url = 'https://images.pexels.com/photos/974470/nature-stars-milky-way-galaxy-974470.jpeg?q=100';
+
+        loadButton.onclick = async function() {
+            try{
+                controller = new AbortController();  
+                const response = await fetch(url, {signal: controller.signal});
+                const blob = await response.blob();
+                const imgUrl = URL.createObjectURL(blob);
+                console.log(imgUrl)
+                img.src = imgUrl;
+            } catch(error){
+                console.log(error);
+            }
+        };
+        
+        
+        stopButton.onclick = function() {
+            controller && controller.abort();
+        };
+        
+    </script>
+</body>
+</html>

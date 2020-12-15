@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // const zelda = {name:'Zelda'};
+      // zelda.saludar= function() { console.log(`Hola soy ${this.name}`)}
+      // zelda.saludar();
+
+      // const link = {name:'Link'};
+      // link.saludar= function() { console.log(`Hola soy ${this.name}`)}
+      // link.saludar();
+
+      // ^ esto es ineficiente no estamos reutilizando los metodos cada vez que declaro un objeto tengo que definir el metodo saludar
+
+      // function Hero(name) {
+      //     const hero = {name}
+      //     hero.saludar = function(){ console.log(`Hola soy ${this.name}`) }
+      //     return hero;
+      // }
+
+      // let zelda = Hero('Zelda');
+      // zelda.saludar();
+      // let link = Hero('Link');
+      // link.saludar();
+
+      // ^ esto es ineficiente por que se esta creando al funcion cada vez que  se instancia
+
+      //   const heroMethods = function () {
+      //       console.log(`Me llamo ${this.name}`);
+      //     };
+
+      //   function Hero(name) {
+      //     const hero = { name };
+      //     hero.saludar = heroMethods;
+      //     return hero;
+      //   }
+
+      //   let zelda = Hero("Zelda");
+      //   zelda.saludar();
+      //   let link = Hero("Link");
+      //   link.saludar();
+
+      // ^ muy bien pero hay una mejor forma de crearlo
+
+      // using object.create crea un objeto apartir de otro
+      //   const heroMethods = {
+      //     saludar: function () {
+      //       console.log(`Soy ${this.name} y soy super heroe`);
+      //     },
+      //   };
+
+      //   function Hero(name) {
+      //     const hero = Object.create(heroMethods);
+      //     hero.name = name;
+      //     return hero;
+      //   }
+
+      //   let zelda = Hero("Zelda");
+      //   zelda.saludar();
+      //   let link = Hero("Link");
+      //   link.saludar();
+      // ^ esta bien si pero si es de hero es dentro de hero
+
+    
+
+      function Hero(name) {
+        this.name = name;
+      }
+
+      Hero.prototype.saludar = function () {
+          console.log(`Soy ${this.name} y soy super poderoso on new`);
+        };
+
+      let zelda = new Hero("Zelda");
+      zelda.saludar();
+      let link = new Hero("Link");
+      link.saludar();
+    </script>
+  </body>
+</html>
